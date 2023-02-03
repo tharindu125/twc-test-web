@@ -19,8 +19,12 @@ export default function Welcome() {
                   <h1 className='font-serif text-[80px] font-bold'>Welcome,</h1>
                   <p className=' text-[40px]'>This is where your contacts will live. Click the button bellow <br/> to add a new contact.</p>
 
-                  <button className='border-[2px] rounded-full px-5 py-1 text-[25px] mt-7 border-black' 
-                      type='' >add your first contact</button>
+                  <div className='mt-8'>
+                      <a href='/AddFirstContact' className='border-[3px] rounded-full px-5 py-1 text-[25px] mt-7 border-black font-bold' 
+                          type="button" 
+                          >add your first contact</a>
+                  </div>
+                  
             </div>
 
           </div>

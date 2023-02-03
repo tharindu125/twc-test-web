@@ -20,7 +20,7 @@ export default function AddFirstContact() {
 
             <div>
 
-                <h1 className='font-serif text-[50px] font-bold my-10 mx-40' >New Contact</h1>
+                <h1 className='font-serif text-[50px] font-bold my-6 mx-40' >New Contact</h1>
 
                 <div className='grid h-32 grid-cols-2 gap-2 mx-40 place-content-center'>
 
@@ -37,9 +37,9 @@ export default function AddFirstContact() {
 
                 </div>
                 
-                <div>
-                    <button className='my-28 mx-40  border-[2px] rounded-full px-5 py-1 text-[25px] border-black' 
-                      type='' >add your first contact</button>
+                <div className='mx-40 mt-28 '>
+                    <a href='/Contacts' className='border-[3px] rounded-full px-5 py-1 text-[25px] border-black font-bold' 
+                      type='button' >add your first contact</a>
                 </div>
                 
             </div>

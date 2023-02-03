@@ -4,10 +4,59 @@ body{
   background-image: url(https://st2.depositphotos.com/4966263/10721/v/950/depositphotos_107219356-stock-illustration-pattern-with-social-media-icons.jpg);
   background-position: center;
   background-size: cover;
-  
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: hidden;
   
+}
+
+#bg {
+  /* background-color: #083F46; */
+  background-image: url(https://st2.depositphotos.com/4966263/10721/v/950/depositphotos_107219356-stock-illustration-pattern-with-social-media-icons.jpg);
+  height: 700px;
+  width: 100vw;
+  position: relative;
+}
+#curved-corner-bottomleft,
+#curved-corner-topright {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+#right-top {
+  top: 0;
+  right: 0;
+  position: absolute;
+}
+
+#left-bottom {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+#curved-corner-bottomleft:before,
+#curved-corner-topright:before {
+  content: "";
+  display: block;
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  border-radius: 50%;
+}
+
+#curved-corner-bottomleft:before {
+  bottom: 0;
+  left: 0;
+  box-shadow: -200px 50px 0 0 cyan;
+}
+
+#curved-corner-topright:before {
+  top: 0;
+  right: 0;
+  box-shadow: 200px -50px 0 0  ;
+  /* background-image: url(https://st2.depositphotos.com/4966263/10721/v/950/depositphotos_107219356-stock-illustration-pattern-with-social-media-icons.jpg); */
 }
