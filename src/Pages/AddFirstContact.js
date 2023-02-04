@@ -27,29 +27,34 @@ export default function AddFirstContact() {
     useEffect(()=>{
         const token = Cookies.get("jwt");
         if (token === undefined) window.location.href = "/Login";
-        console.log(token);
-        // verify(token)
-        //   .then(async(result) => {
-        //     console.log(result);
-        //   })
-        //   .catch((error) => {
-        //     console.log(error);
-        //   });
+        verify(token)
+          .then(async(result) => {
+            const {email} = result.user;
+            setOwner(email)
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     },[])
 
     const addContact = async()=>{
-        console.log({name,email,phone,gender,owner});
-        // try {
-        //     const res = await fetch('http://localhost:5000/contact',{
-        //         method:'POST',
-        //         headers:{
-        //             'Content-Type':'application/json'
-        //         },
-        //         body:JSON.stringify({name,email,phone,gender,owner})
-        //     })
-        // } catch (error) {
-            
-        // }
+        try {
+            const res = await fetch('http://localhost:5000/contact',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({name,email,phone_number:phone,gender,owner})
+            })
+            const data = await res.json()
+            if (!res.ok) {
+                const {error} = data;
+                throw Error(error)
+            }
+            if (res.ok) window.location.href = "/Contacts"
+        } catch (error) {
+            console.log(error);
+        }
     }
     
   return (
@@ -75,9 +80,9 @@ export default function AddFirstContact() {
 
                 <div className='grid h-32 grid-cols-2 gap-2 mx-40 place-content-center'>
 
-                    <input value={name} onInput={e=>setName(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#f9f9f9]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      full name"/>
-                    <input value={email} onInput={e=>setEmail(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      e-mail"/>
-                    <input value={phone} onInput={e=>setPhone(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      phone number"/>
+                    <input type="text" value={name} onInput={e=>setName(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#f9f9f9]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      full name"/>
+                    <input type="email" value={email} onInput={e=>setEmail(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      e-mail"/>
+                    <input type="text" value={phone} onInput={e=>setPhone(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      phone number"/>
                     <form className='flex mx-5 text-[25px] font-bold my-10'>
                         <label>gender</label>
                         <input type="radio" className='mx-5' name="gender"  onInput={()=>{setGender('Male')}} />

@@ -13,11 +13,29 @@ export default function Contacts() {
             token,
             new TextEncoder().encode(process.env.REACT_APP_JWT_SECRET)
           );
+        //   console.log(payload);
           return payload;
         } catch (error) {
-          return false;
+            alert(error.message)
+            window.location.href = "/Login";
         }
       }
+
+    
+      const deleteContact = async(id) => {
+        const res = await fetch(`http://localhost:5000/contact/${id}`,{
+            method:'DELETE',
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        if (res.ok) window.location.reload()
+        if (!res.ok) {
+            const data = await res.json()
+            console.log(data);
+        }
+           
+    }
       useEffect(() => {
         const token = Cookies.get("jwt");
         if (token === undefined) window.location.href = "/Login";
@@ -67,7 +85,7 @@ export default function Contacts() {
         </div>
 
         {
-            contacts && <ContactList contacts={contacts} />
+            contacts && <ContactList contacts={contacts} deleteContact={deleteContact} />
         }
 
     </div>

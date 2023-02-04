@@ -22,7 +22,7 @@ export default function Login() {
         const {error} = await res.json()
         throw Error(error)
       }
-      console.log(res.headers);
+      if (res.ok) window.location.href = "/"
     } catch (error) {
       console.log(error.message);
     }
@@ -45,7 +45,7 @@ export default function Login() {
 
           <div>
 
-            <input className=' mt-16 rounded-full h-16 w-[28rem] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      e-mail" value={email}  onInput={(e)=>{setEmail(e.target.value)}}/>
+            <input type="email" className=' mt-16 rounded-full h-16 w-[28rem] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      e-mail" value={email}  onInput={(e)=>{setEmail(e.target.value)}}/>
             <input type="password" className=' mt-10 rounded-full h-16 w-[28rem] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      password" value={password} onInput={(e)=>{setPassword(e.target.value)}}/>
             <br/>
             <button className=' border-[2px] rounded-full text-[23px] px-8 py-2 mt-10 text-white' onClick={signIn}>login</button>

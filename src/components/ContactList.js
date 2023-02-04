@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom"
 
+export default function ContactList({contacts,deleteContact}){
 
-export default function ContactList({contacts}){
 
     return (
         <table>
             <thead>
                 <tr>
+                    <th></th>
                     <th>fullname</th>
                     <th>gender</th>
                     <th>email</th>
@@ -18,12 +20,13 @@ export default function ContactList({contacts}){
                 {
                     contacts && contacts.map(({_id,name,gender,email,phone_number})=>(
                         <tr key={_id} id={_id}>
+                            <td>&#128100</td>
                             <td>{name}</td>
                             <td>{gender}</td>
                             <td>{email}</td>
                             <td>{phone_number}</td>
-                            <td><button>&#128394;</button></td>
-                            <td><button>🗑</button></td>
+                            <td><Link to={`/Edit/${_id}`}>&#128394;</Link></td>
+                            <td><button onClick={()=>{deleteContact(_id)}}>🗑</button></td>
                         </tr>
                     ))
                 }
