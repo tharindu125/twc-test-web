@@ -1,6 +1,46 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import Cookies from "js-cookie";
+import { jwtVerify } from "jose";
+import { useEffect } from 'react';
+import ContactList from '../components/ContactList';
 export default function Contacts() {
+
+    const [contacts,setContacts] = useState(null)
+
+    async function verify(token) {
+        try {
+          const {payload} = await jwtVerify(
+            token,
+            new TextEncoder().encode(process.env.REACT_APP_JWT_SECRET)
+          );
+          return payload;
+        } catch (error) {
+          return false;
+        }
+      }
+      useEffect(() => {
+        const token = Cookies.get("jwt");
+        if (token === undefined) window.location.href = "/Login";
+        verify(token)
+          .then(async(result) => {
+            try {
+                const {email} = result.user;
+                const res = await fetch(`http://127.0.0.1:5000/contact/findbyowner/${email}`)
+                const data = await res.json()
+                if (!res.ok) {
+                    const {error} = data
+                    throw Error(error)
+                } 
+                // console.log(data);
+                setContacts(data)
+            } catch (error) {
+                console.error(error.message);
+            } 
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }, []);
   return (
     <div>
 
@@ -25,6 +65,10 @@ export default function Contacts() {
                       type='' >add your first contact</a>
             </div>
         </div>
+
+        {
+            contacts && <ContactList contacts={contacts} />
+        }
 
     </div>
   )

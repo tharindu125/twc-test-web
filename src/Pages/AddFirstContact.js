@@ -1,6 +1,57 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import Cookies from "js-cookie";
+import { jwtVerify } from "jose";
 export default function AddFirstContact() {
+
+    const [name,setName] = useState('')
+    const [email,setEmail] = useState('')
+    const [phone,setPhone] = useState('')
+    const [gender,setGender] = useState('')
+    const [owner,setOwner] = useState('')
+
+
+    async function verify(token) {
+        try {
+          const {payload} = await jwtVerify(
+            token,
+            new TextEncoder().encode(process.env.REACT_APP_JWT_SECRET)
+          );
+          return payload;
+        } catch (error) {
+          return false;
+        }
+      }
+
+    
+
+    useEffect(()=>{
+        const token = Cookies.get("jwt");
+        if (token === undefined) window.location.href = "/Login";
+        console.log(token);
+        // verify(token)
+        //   .then(async(result) => {
+        //     console.log(result);
+        //   })
+        //   .catch((error) => {
+        //     console.log(error);
+        //   });
+    },[])
+
+    const addContact = async()=>{
+        console.log({name,email,phone,gender,owner});
+        // try {
+        //     const res = await fetch('http://localhost:5000/contact',{
+        //         method:'POST',
+        //         headers:{
+        //             'Content-Type':'application/json'
+        //         },
+        //         body:JSON.stringify({name,email,phone,gender,owner})
+        //     })
+        // } catch (error) {
+            
+        // }
+    }
+    
   return (
     <div>
 
@@ -24,22 +75,22 @@ export default function AddFirstContact() {
 
                 <div className='grid h-32 grid-cols-2 gap-2 mx-40 place-content-center'>
 
-                    <input className=' mt-14 rounded-full h-16 w-[28rem] placeholder:text-[#f9f9f9]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      full name"/>
-                    <input className=' mt-14 rounded-full h-16 w-[28rem] placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      e-mail"/>
-                    <input className=' mt-14 rounded-full h-16 w-[28rem] placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      phone number"/>
+                    <input value={name} onInput={e=>setName(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#f9f9f9]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      full name"/>
+                    <input value={email} onInput={e=>setEmail(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      e-mail"/>
+                    <input value={phone} onInput={e=>setPhone(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      phone number"/>
                     <form className='flex mx-5 text-[25px] font-bold my-10'>
                         <label>gender</label>
-                        <input type="radio" className='mx-5' id="male"  value="male"/>
+                        <input type="radio" className='mx-5' name="gender"  onInput={()=>{setGender('Male')}} />
                         <label for="html">male</label><br/>
-                        <input type="radio" className='mx-5' id="female" value="female"/>
+                        <input type="radio" className='mx-5' name="gender" onInput={()=>{setGender('Female')}}/>
                         <label for="css">female</label><br/>
                     </form>
 
                 </div>
                 
                 <div className='mx-40 mt-28 '>
-                    <a href='/Contacts' className='border-[3px] rounded-full px-5 py-1 text-[25px] border-black font-bold' 
-                      type='button' >add your first contact</a>
+                    <span onClick={addContact} className='border-[3px] rounded-full px-5 py-1 text-[25px] border-black font-bold' 
+                      type='button' >add your first contact</span>
                 </div>
                 
             </div>

@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css'
 
 export default function Login() {
+
+  const [email,setEmail] = useState('')
+  const [password,setPassword] = useState('')
+
+
+
+  const signIn = async()=>{
+    try {
+      const res = await fetch('http://localhost:5000/login',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({email,password}),
+        credentials: 'include'
+      })
+      if (!res.ok) {
+        const {error} = await res.json()
+        throw Error(error)
+      }
+      console.log(res.headers);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   return (
     <div >
 
@@ -19,10 +45,10 @@ export default function Login() {
 
           <div>
 
-            <input className=' mt-16 rounded-full h-16 w-[28rem] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      e-mail"/>
-            <input className=' mt-10 rounded-full h-16 w-[28rem] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      password"/>
+            <input className=' mt-16 rounded-full h-16 w-[28rem] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      e-mail" value={email}  onInput={(e)=>{setEmail(e.target.value)}}/>
+            <input type="password" className=' mt-10 rounded-full h-16 w-[28rem] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      password" value={password} onInput={(e)=>{setPassword(e.target.value)}}/>
             <br/>
-            <button className=' border-[2px] rounded-full text-[23px] px-8 py-2 mt-10 text-white'>login</button>
+            <button className=' border-[2px] rounded-full text-[23px] px-8 py-2 mt-10 text-white' onClick={signIn}>login</button>
 
           </div>
 
