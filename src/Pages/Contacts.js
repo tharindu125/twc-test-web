@@ -83,10 +83,12 @@ export default function Contacts() {
                       type='' >add your first contact</a>
             </div>
         </div>
-
-        {
-            contacts && <ContactList contacts={contacts} deleteContact={deleteContact} />
-        }
+        <div className='h-auto mx-44 p-6 bg-white w-[60rem] place-self-center rounded-3xl border-4 border-black'>
+          {
+              contacts && <ContactList contacts={contacts} deleteContact={deleteContact} />
+          }
+        </div>
+        
 
     </div>
   )

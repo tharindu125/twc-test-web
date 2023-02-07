@@ -80,9 +80,9 @@ export default function AddFirstContact() {
 
                 <div className='grid h-32 grid-cols-2 gap-2 mx-40 place-content-center'>
 
-                    <input type="text" value={name} onInput={e=>setName(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#f9f9f9]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      full name"/>
-                    <input type="email" value={email} onInput={e=>setEmail(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      e-mail"/>
-                    <input type="text" value={phone} onInput={e=>setPhone(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      phone number"/>
+                    <input type="text" value={name} onInput={e=>setName(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-5 placeholder:text-[#f9f9f9]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      full name"/>
+                    <input type="email" value={email} onInput={e=>setEmail(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-5 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      e-mail"/>
+                    <input type="text" value={phone} onInput={e=>setPhone(e.target.value)} className=' mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-5 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black' placeholder="      phone number"/>
                     <form className='flex mx-5 text-[25px] font-bold my-10'>
                         <label>gender</label>
                         <input type="radio" className='mx-5' name="gender"  onInput={()=>{setGender('Male')}} />
