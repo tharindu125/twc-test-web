@@ -75,81 +75,86 @@ export default function Edit() {
 
   return (
     <>
-    <div className='mt-20 ml-40 '>
+    <div className=" ellipse-1">
+      <div className='mt-[13rem] ml-20  body00'>
+        <div className='mt-20 ml-40 '>
 
-      <div className='inline-flex '>
-          {/* <img src='n.jpg'  alt='' className='w-5 h-5'/> */}
-          <img src="n.jpg" alt="" className="w-5 h-5 "/>
-          <h1 className='text-[25px] text-[#060606] font-bold -mt-3'>twc</h1>
-      </div>
+          <div className='inline-flex '>
+              {/* <img src='n.jpg'  alt='' className='w-5 h-5'/> */}
+              <img src="n.jpg" alt="" className="w-5 h-5 "/>
+              <h1 className='text-[25px] text-[#ffffff] font-bold -mt-3'>twc</h1>
+          </div>
 
-      <div>
-          <h1 className='text-[25px] text-[#000000] font-bold -mt-4'> contacts </h1>
-          <h1 className='text-[25px] text-[#020202] font-bold -mt-4'>portal</h1>
-      </div>
+          <div>
+              <h1 className='text-[25px] text-[#ffffff] font-bold -mt-4'> contacts </h1>
+              <h1 className='text-[25px] text-[#ffffff] font-bold -mt-4'>portal</h1>
+          </div>
 
-      <div>
-        <h1 className='font-serif text-[50px] font-bold my-5'>Edit</h1>
-      </div>
+          <div>
+            <h1 className='font-serif text-[50px] font-bold my-5 text-[#ffffff]'>Edit</h1>
+          </div>
 
-    </div>
-    
-    <div className="grid h-32 grid-cols-2 gap-2 mx-40 place-content-center">
+        </div>
+        
+        <div className="grid h-32 grid-cols-2 gap-2 mx-40 place-content-center">
 
-      <input
-        type="text"
-        value={name}
-        onInput={(e) => setName(e.target.value)}
-        className=" mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#f9f9f9]  placeholder:text-[25px] placeholder:font-bold bg-black"
-        placeholder="      full name"
-      />
-      <input
-        type="email"
-        value={email}
-        onInput={(e) => setEmail(e.target.value)}
-        className=" mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black"
-        placeholder="      e-mail"
-      />
-      <input
-        type="text"
-        value={phone}
-        onInput={(e) => setPhone(e.target.value)}
-        className=" mt-14 rounded-full h-16 w-[28rem] text-zinc-50 text-[25px] pl-3 placeholder:text-[#ffffff]  placeholder:text-[25px] placeholder:font-bold bg-black"
-        placeholder="      phone number"
-      />
-      <form className="flex mx-5 text-[25px] font-bold my-10">
-        <label>gender</label>
-        <input
-        id="male"
-          type="radio"
-          className="mx-5"
-          name="gender"
-          onInput={() => {
-            setGender("Male");
-          }}
-        />
-        <label for="html">male</label>
-        <br />
-        <input
+          <input
+            type="text"
+            value={name}
+            onInput={(e) => setName(e.target.value)}
+            className=" mt-14 rounded-full h-16 w-[28rem] text-[#083F46] text-[25px] pl-3 placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold bg-white"
+            placeholder="      full name"
+          />
+          <input
+            type="email"
+            value={email}
+            onInput={(e) => setEmail(e.target.value)}
+            className=" mt-14 rounded-full h-16 w-[28rem] text-[#083F46] text-[25px] pl-3 placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold bg-white"
+            placeholder="      e-mail"
+          />
+          <input
+            type="text"
+            value={phone}
+            onInput={(e) => setPhone(e.target.value)}
+            className=" mt-14 rounded-full h-16 w-[28rem] text-[#083F46] text-[25px] pl-3 placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold bg-white"
+            placeholder="      phone number"
+          />
+          <form className="flex mx-5 text-[25px] font-bold my-10 text-[#ffffff]">
+            <label>gender</label>
+            <input
+            id="male"
+              type="radio"
+              className="mx-5"
+              name="gender"
+              onInput={() => {
+                setGender("Male");
+              }}
+            />
+            <label for="html">male</label>
+            <br />
+            <input
 
-        id="female"
-          type="radio"
-          className="mx-5"
-          name="gender"
-          onInput={() => {
-            setGender("Female");
-          }}
-        />
-        <label for="css">female</label>
-        <br />
-      </form>
-      
-    </div>
-        <div className='mx-40 mt-28 '>
-            <span onClick={addContact} className='border-[3px] rounded-full px-5 py-1 text-[25px] border-black font-bold' 
+            id="female"
+              type="radio"
+              className="mx-5"
+              name="gender"
+              onInput={() => {
+                setGender("Female");
+              }}
+            />
+            <label for="css">female</label>
+            <br />
+          </form>
+          
+        </div>
+
+        <div className='mx-40 mt-28 text-[#ffffff]'>
+            <span onClick={addContact} className='border-[2px] rounded-full px-5 py-1 text-[25px] border-white font-bold' 
                       type='button' >save</span>
         </div>
-    </>
+    </div>
+  </div>
+</>
     
   );
 }

@@ -60,3 +60,20 @@ body{
   box-shadow: 200px -50px 0 0  ;
   /* background-image: url(https://st2.depositphotos.com/4966263/10721/v/950/depositphotos_107219356-stock-illustration-pattern-with-social-media-icons.jpg); */
 }
+
+.ellipse-1 {
+  background-color: #083F46;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 997.32px/629.88px;
+  height: 960px;
+  position: absolute;
+  margin-left: -95px;
+  margin-top: -138.16px;
+  transform: rotate(21.18deg);
+  width: 1595px;
+}
+
+.body00{
+  transform: rotate(-21.18deg);
+}
