@@ -76,12 +76,11 @@ export default function Edit() {
   return (
     <>
     <div className=" ellipse-1">
-      <div className='mt-[13rem] ml-20  body00'>
+      <div className='mt-[11rem] ml-20  body00'>
         <div className='mt-20 ml-40 '>
 
           <div className='inline-flex '>
-              {/* <img src='n.jpg'  alt='' className='w-5 h-5'/> */}
-              <img src="n.jpg" alt="" className="w-5 h-5 "/>
+              <img src="logo.png" alt="" className="w-5 h-5 "/>
               <h1 className='text-[25px] text-[#ffffff] font-bold -mt-3'>twc</h1>
           </div>
 
@@ -91,7 +90,7 @@ export default function Edit() {
           </div>
 
           <div>
-            <h1 className='font-serif text-[50px] font-bold my-5 text-[#ffffff]'>Edit</h1>
+            <h1 className='font-sans text-[50px] font-bold my-8 text-[#ffffff]'>Edit</h1>
           </div>
 
         </div>
@@ -149,8 +148,8 @@ export default function Edit() {
         </div>
 
         <div className='mx-40 mt-28 text-[#ffffff]'>
-            <span onClick={addContact} className='border-[2px] rounded-full px-5 py-1 text-[25px] border-white font-bold' 
-                      type='button' >save</span>
+            <button onClick={addContact} className='border-[2px] rounded-full px-5 py-1 text-[25px] border-white font-bold' 
+                      type='button' >save</button>
         </div>
     </div>
   </div>

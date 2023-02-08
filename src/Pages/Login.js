@@ -31,7 +31,7 @@ export default function Login() {
   return (
     <div >
 
-      <div className="bg-[#083F46] h-[55rem] w-[50rem] border-[1px] border-lime-900 rounded-r-full -mt-20 flex" >
+      <div className="bg-[#083F46] h-[55rem] xl:w-[40rem] w-[50rem] border-[1px] border-lime-900 rounded-r-full -mt-20 flex" >
 
         <div className='mt-[180px] px-32  '>
 
@@ -45,24 +45,24 @@ export default function Login() {
 
           <div>
 
-            <input type="email" className=' mt-16 rounded-full h-16 w-[28rem] px-5 text-[20px] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      e-mail" value={email}  onInput={(e)=>{setEmail(e.target.value)}}/>
-            <input type="password" className=' mt-10 rounded-full h-16 w-[28rem] px-5 text-[20px] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      password" value={password} onInput={(e)=>{setPassword(e.target.value)}}/>
+            <input type="email" className=' mt-16 rounded-full xl:h-14 xl:w-[25rem] h-16 w-[28rem] px-5 text-[20px] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      e-mail" value={email}  onInput={(e)=>{setEmail(e.target.value)}}/>
+            <input type="password" className=' mt-10 rounded-full xl:h-14 xl:w-[25rem] h-16 w-[28rem] px-5 text-[20px] placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold' placeholder="      password" value={password} onInput={(e)=>{setPassword(e.target.value)}}/>
             <br/>
-            <button className=' border-[2px] rounded-full text-[23px] px-8 py-2 mt-10 text-white' onClick={signIn}>login</button>
+            <button className=' xl:px-7 xl:py-1 border-[2px] rounded-full text-[23px] px-8 py-2 mt-10 text-white' onClick={signIn}>login</button>
 
           </div>
 
         </div>
 
-        <div className='mt-[280px] px-[220px]'>
+        <div className='mt-[280px] px-[220px] xl:px-[180px] '>
 
           <div className='inline-flex'>
-            <img src='n.jpg'  alt='' className='w-20 h-20'/>
-            <h1 className='text-[75px] text-[#000000] font-bold -mt-5'>twc</h1>
+            <img src='logo.png'  alt='' className='w-22 h-28'/>
+            <h1 className='text-[75px] text-[#000000] font-bold -mt-3'>twc</h1>
           </div>
 
           <div>
-              <h1 className='text-[75px] text-[#083F46] font-bold -mt-10'> contacts </h1>
+              <h1 className='text-[75px] text-[#083F46] font-bold -mt-14'> contacts </h1>
               <h1 className='text-[75px] text-[#083F46] -mt-10'>portal</h1>
           </div>
           

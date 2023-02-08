@@ -29,10 +29,10 @@ export default function Welcome() {
   return (
     <div>
     <div className=" ellipse-1">
-      <div className="ml-[13rem] mt-[13rem] body00">
+      <div className="ml-[13rem] mt-[11rem] body00">
         <div className="inline-flex ">
-          <img src="n.jpg" alt="" className="w-5 h-5" />
-          <h1 className="text-[25px] text-[#fffefe] font-bold -mt-3">twc</h1>
+          <img src="logo.png" alt="" className="w-8 h-10" />
+          <h1 className="text-[25px] text-[#fffefe] font-bold">twc</h1>
         </div>
 
         <div>
@@ -43,7 +43,7 @@ export default function Welcome() {
           <h1 className="text-[25px] text-[#ffffff] font-bold -mt-4">portal</h1>
         </div>
 
-        <div>
+        <div className="mt-8">
           <h1 className="font-serif text-[80px] font-bold text-white">Welcome,</h1>
           <p className=" text-[40px] text-white">
             This is where your contacts will live. Click the button bellow{" "}
@@ -53,7 +53,7 @@ export default function Welcome() {
           <div className="mt-8">
             <a
               href="/AddFirstContact"
-              className="border-[2px] text-white rounded-full px-5 py-1 text-[25px] mt-7 border-white font-bold"
+              className="border-[4px] text-white rounded-full px-5 py-1 text-[25px] mt-7 border-white font-bold"
               type="button"
             >
               add your first contact

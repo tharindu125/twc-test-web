@@ -60,12 +60,12 @@ export default function AddFirstContact() {
   return (
     <div>
         <div className='ellipse-1'>
-          <div className='mt-[13rem] ml-20  body00'>
+          <div className='mt-[11rem] ml-20  body00'>
             <div className='mt-20 ml-40'>
 
                 <div className='inline-flex '>
-                    <img src='n.jpg'  alt='' className='w-5 h-5'/>
-                    <h1 className='text-[25px] text-[#ffffff] font-bold -mt-3'>twc</h1>
+                    <img src='logo.png'  alt='' className='w-8 h-10'/>
+                    <h1 className='text-[25px] text-[#ffffff] font-bold'>twc</h1>
                 </div>
                 
                 <div>
@@ -77,7 +77,7 @@ export default function AddFirstContact() {
 
             <div>
 
-                <h1 className='font-serif text-[50px] font-bold my-6 mx-40 text-[#ffffff]' >New Contact</h1>
+                <h1 className=' font-sans text-[50px] font-bold my-6 mx-40 text-[#ffffff]' >New Contact</h1>
 
                 <div className='grid h-32 grid-cols-2 gap-2 mx-40 place-content-center'>
 
@@ -95,14 +95,14 @@ export default function AddFirstContact() {
                 </div>
                 
                 <div className='mx-40 mt-28 '>
-                    <span onClick={addContact} className='border-[px] rounded-full px-5 py-1 text-[25px] text-[#ffffff] border-white font-bold' 
-                      type='button' >add your first contact</span>
+                    <button onClick={addContact} className='border-[2px] rounded-full px-5 py-1 text-[25px] text-[#ffffff] border-white font-bold' 
+                     >add your first contact</button>
                 </div>
                 
             </div>
           </div>
        </div>
-    </div>
+    </div> 
   )
 }
 
