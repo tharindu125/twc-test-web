@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Cookies from "js-cookie";
 import { jwtVerify } from "jose";
+
+
 export default function AddFirstContact() {
 
     const [name,setName] = useState('')
@@ -37,6 +39,7 @@ export default function AddFirstContact() {
           });
     },[])
 
+    //add contact
     const addContact = async()=>{
         try {
             const res = await fetch('http://localhost:5000/contact',{
@@ -61,6 +64,7 @@ export default function AddFirstContact() {
     <div>
         <div className='ellipse-1'>
           <div className='mt-[11rem] ml-20  body00'>
+          
             <div className='mt-20 ml-40'>
 
                 <div className='inline-flex '>

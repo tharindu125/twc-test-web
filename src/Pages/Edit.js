@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { json, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 import { jwtVerify } from "jose";
 
 export default function Edit() {
+
   const { id } = useParams();
-  const [contact, setContact] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -23,6 +23,8 @@ export default function Edit() {
       return false;
     }
   }
+
+
   useEffect(() => {
     const token = Cookies.get("jwt");
     if (token === undefined) window.location.href = "/Login";
@@ -33,6 +35,7 @@ export default function Edit() {
         fetch(`http://127.0.0.1:5000/contact/${id}`)
           .then((res) => res.json())
           .then((data) => {
+
             const {name,email,phone_number,gender} = data;
             setName(name)
             setEmail(email)
@@ -40,6 +43,7 @@ export default function Edit() {
             setGender(gender)
             if (gender === 'Male') document.getElementById('male').checked  = true
             if (gender === 'Female') document.getElementById('female').checked  = true
+
           })
           .catch((error) => {
             console.log(error.message);
@@ -68,9 +72,7 @@ export default function Edit() {
         console.log(error.message);
     }
     console.log({name,email,phone,gender});
-
-
-    
+   
   }
 
   return (
@@ -118,29 +120,13 @@ export default function Edit() {
             className=" mt-14 rounded-full h-16 w-[28rem] text-[#083F46] text-[25px] pl-3 placeholder:text-[#083F46]  placeholder:text-[25px] placeholder:font-bold bg-white"
             placeholder="      phone number"
           />
+
           <form className="flex mx-5 text-[25px] font-bold my-10 text-[#ffffff]">
             <label>gender</label>
-            <input
-            id="male"
-              type="radio"
-              className="mx-5"
-              name="gender"
-              onInput={() => {
-                setGender("Male");
-              }}
-            />
+            <input id="male" type="radio" className="mx-5" name="gender" onInput={() => { setGender("Male");}}/>
             <label for="html">male</label>
             <br />
-            <input
-
-            id="female"
-              type="radio"
-              className="mx-5"
-              name="gender"
-              onInput={() => {
-                setGender("Female");
-              }}
-            />
+            <input id="female" type="radio" className="mx-5" name="gender" onInput={() => { setGender("Female"); }}/>
             <label for="css">female</label>
             <br />
           </form>
@@ -148,9 +134,9 @@ export default function Edit() {
         </div>
 
         <div className='mx-40 mt-28 text-[#ffffff]'>
-            <button onClick={addContact} className='border-[2px] rounded-full px-5 py-1 text-[25px] border-white font-bold' 
-                      type='button' >save</button>
+            <button onClick={addContact} className='border-[2px] rounded-full px-5 py-1 text-[25px] border-white font-bold'  type='button' >save</button>
         </div>
+
     </div>
   </div>
 </>

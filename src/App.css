@@ -1,4 +1,3 @@
-
 /*-----Common-----*/
 body{
   background-image: url(https://st2.depositphotos.com/4966263/10721/v/950/depositphotos_107219356-stock-illustration-pattern-with-social-media-icons.jpg);
@@ -11,6 +10,7 @@ body{
   
 }
 
+/*----- green color background design-----*/
 .ellipse-1 {
   background-color: #083F46;
   border: 1px solid;
@@ -24,10 +24,12 @@ body{
   width: 1795px;
 }
 
+
 .body00{
   transform: rotate(-21.18deg);
 }
 
+/*----- green color background design-----*/
 @media (max-width: 1280px) { 
   .ellipse-1 {
     background-color: #083F46;

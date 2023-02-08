@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { jwtVerify } from "jose";
 import { useEffect } from 'react';
 import ContactList from '../components/ContactList';
+
 export default function Contacts() {
 
     const [contacts,setContacts] = useState(null)
@@ -21,7 +22,7 @@ export default function Contacts() {
         }
       }
 
-    
+      //delete
       const deleteContact = async(id) => {
         const res = await fetch(`http://localhost:5000/contact/${id}`,{
             method:'DELETE',
@@ -35,7 +36,8 @@ export default function Contacts() {
             console.log(data);
         }
            
-    }
+      }
+
       useEffect(() => {
         const token = Cookies.get("jwt");
         if (token === undefined) window.location.href = "/Login";
@@ -59,15 +61,17 @@ export default function Contacts() {
             console.log(error);
           });
       }, []);
+
+
   return (
     <div>
       <div className=" ellipse-1">
-        <div className='mt-[13rem] ml-20  body00'>
-          <div className='mt-20 ml-40'>
+        <div className='mt-[10rem] ml-20  body00'>
+          <div className='mt-20 ml-40'> 
 
               <div className='inline-flex '>
-                  <img src='n.jpg'  alt='' className='w-5 h-5'/>
-                  <h1 className='text-[25px] text-[#ffffff] font-bold -mt-3'>twc</h1>
+                  <img src='logo.png'  alt='' className='w-8 h-10'/>
+                  <h1 className='text-[25px] text-[#ffffff] font-bold'>twc</h1>
               </div>
                   
               <div>

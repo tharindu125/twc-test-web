@@ -4,6 +4,7 @@ export default function ContactList({contacts,deleteContact}){
 
 
     return (
+        // contact data table
         <table>
             <thead>
                 <tr className=" text-[22px]">
