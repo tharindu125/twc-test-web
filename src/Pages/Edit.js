@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 import { jwtVerify } from "jose";
+import Editmsg from "../components/Editmsg";
 
 export default function Edit() {
 
@@ -11,6 +12,7 @@ export default function Edit() {
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState("");
   const [owner, setOwner] = useState("");
+  const [showModel,setShowModel] = useState(false)
 
   async function verify(token) {
     try {
@@ -21,7 +23,7 @@ export default function Edit() {
       return payload;
     } catch (error) {
       return false;
-    }
+    } 
   }
 
 
@@ -54,29 +56,32 @@ export default function Edit() {
       });
   }, []);
 
-  const addContact = async()=>{
+  const addContact = async()=>{    
     try {
         const res = await fetch(`http://localhost:5000/contact/${id}`,{
             method:'PUT',
             headers:{
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify({name,email,phone_number:phone,gender,owner})
+            body:JSON.stringify({name,email,phone_number:phone,gender,owner})            
         })
+        
         if (!res.ok) {
             const {error} = await res.json()
             throw Error(error)
         }
         if (res.ok) window.location.href = '/Contacts'
+        
     } catch (error) {
         console.log(error.message);
     }
-    console.log({name,email,phone,gender});
-   
+    
+    console.log({name,email,phone,gender});   
   }
+  
 
   return (
-    <>
+    <div>
     <div className=" ellipse-1">
       <div className='mt-[11rem] ml-20  body00'>
         <div className='mt-20 ml-40 '>
@@ -134,12 +139,13 @@ export default function Edit() {
         </div>
 
         <div className='mx-40 mt-28 text-[#ffffff]'>
-            <button onClick={addContact} className='border-[2px] rounded-full px-5 py-1 text-[25px] border-white font-bold'  type='button' >save</button>
+            <button onClick={setShowModel}  className='border-[2px] rounded-full px-5 py-1 text-[25px] border-white font-bold'  type='button' >save</button>
         </div>
 
     </div>
   </div>
-</>
+      <Editmsg onClose={addContact} visible={showModel}/>
+</div>
     
   );
 }

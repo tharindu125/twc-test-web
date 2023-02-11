@@ -3,10 +3,13 @@ import Cookies from "js-cookie";
 import { jwtVerify } from "jose";
 import { useEffect } from 'react';
 import ContactList from '../components/ContactList';
+import Delete from '../components/DeleteMsg';
+import DeleteMsg from '../components/DeleteMsg';
 
 export default function Contacts() {
 
     const [contacts,setContacts] = useState(null)
+    const[showDeleteMsg,setShowDeleteMsg] = useState(false)
 
     async function verify(token) {
         try {
@@ -32,6 +35,7 @@ export default function Contacts() {
         })
         if (res.ok) window.location.reload()
         if (!res.ok) {
+            
             const data = await res.json()
             console.log(data);
         }
@@ -67,6 +71,7 @@ export default function Contacts() {
     <div>
       <div className=" ellipse-1">
         <div className='mt-[10rem] ml-20  body00'>
+
           <div className='mt-20 ml-40'> 
 
               <div className='inline-flex '>
@@ -93,8 +98,13 @@ export default function Contacts() {
                 contacts && <ContactList contacts={contacts} deleteContact={deleteContact} />
             }
           </div>
+                   
         </div>
+       
       </div>
+            
+          <DeleteMsg visible={showDeleteMsg} />
+
     </div>
   )
 }

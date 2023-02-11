@@ -20,7 +20,7 @@ export default function ContactList({contacts,deleteContact}){
             <tbody>
                 {
                     contacts && contacts.map(({_id,name,gender,email,phone_number})=>(
-                        <tr key={_id} id={_id}>
+                        <tr key={_id} id={_id} >
                             <td >&#128100;</td>
                             <td className="px-5 py-[6px] text-lg">{name}</td>
                             <td className="px-8 text-lg">{gender}</td>
