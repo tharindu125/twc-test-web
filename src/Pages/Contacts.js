@@ -3,7 +3,6 @@ import Cookies from "js-cookie";
 import { jwtVerify } from "jose";
 import { useEffect } from 'react';
 import ContactList from '../components/ContactList';
-import Delete from '../components/DeleteMsg';
 import DeleteMsg from '../components/DeleteMsg';
 
 export default function Contacts() {
@@ -33,14 +32,23 @@ export default function Contacts() {
                 'Content-Type':'application/json'
             }
         })
-        if (res.ok) window.location.reload()
+        // if (res.ok) window.location.reload()
+        if (res.ok) deleteModel(true)
         if (!res.ok) {
             
             const data = await res.json()
             console.log(data);
         }
-           
+        
       }
+
+      function deleteModel(x) {
+          setShowDeleteMsg(x)
+          
+      }
+     function handleOkay() {
+          window.location.reload()
+     }
 
       useEffect(() => {
         const token = Cookies.get("jwt");
@@ -103,7 +111,7 @@ export default function Contacts() {
        
       </div>
             
-          <DeleteMsg visible={showDeleteMsg} />
+          <DeleteMsg onClose={handleOkay} visible={showDeleteMsg} />
 
     </div>
   )
