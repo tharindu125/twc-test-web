@@ -5,7 +5,7 @@ import { jwtVerify } from "jose";
 
 export default function AddFirstContact() {
 
-    const [name,setName] = useState('')
+    const [name,setName] = useState('') 
     const [email,setEmail] = useState('')
     const [phone,setPhone] = useState('')
     const [gender,setGender] = useState('')

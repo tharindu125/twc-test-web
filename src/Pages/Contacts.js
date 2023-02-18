@@ -35,13 +35,12 @@ export default function Contacts() {
         // if (res.ok) window.location.reload()
         if (res.ok) deleteModel(true)
         if (!res.ok) {
-            
             const data = await res.json()
             console.log(data);
         }
         
       }
-
+      //delete massage
       function deleteModel(x) {
           setShowDeleteMsg(x)
           
