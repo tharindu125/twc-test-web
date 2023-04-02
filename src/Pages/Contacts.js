@@ -56,7 +56,8 @@ export default function Contacts() {
           .then(async(result) => {
             try {
                 const {email} = result.user;
-                const res = await fetch(`http://127.0.0.1:5000/contact/findbyowner/${email}`)
+                // const res = await fetch(`http://127.0.0.1:5000/contact/findbyowner/${email}`)
+                const res = await fetch(`https://contact-za28.onrender.com/contact/findbyowner/${email}`)
                 const data = await res.json()
                 if (!res.ok) {
                     const {error} = data
