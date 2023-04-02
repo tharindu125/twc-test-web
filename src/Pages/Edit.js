@@ -58,7 +58,7 @@ export default function Edit() {
 
   const addContact = async()=>{    
     try {
-        const res = await fetch(`http://localhost:5000/contact/${id}`,{
+        const res = await fetch(`https://contact-za28.onrender.com/contact/${id}`,{
             method:'PUT',
             headers:{
                 'Content-Type':'application/json'

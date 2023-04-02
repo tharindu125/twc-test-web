@@ -26,7 +26,7 @@ export default function Contacts() {
 
       //delete
       const deleteContact = async(id) => {
-        const res = await fetch(`http://localhost:5000/contact/${id}`,{
+        const res = await fetch(`https://contact-za28.onrender.com/contact/${id}`,{
             method:'DELETE',
             headers:{
                 'Content-Type':'application/json'
